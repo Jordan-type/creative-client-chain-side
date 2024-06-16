@@ -1,7 +1,9 @@
-import blog1 from "../../assets/blog1.png";
-import blog2 from "../../assets/blog2.png";
-import blog3 from "../../assets/blog3.png";
+import blog1 from "../../../assets/blog1.png";
+import blog2 from "../../../assets/blog2.png";
+import blog3 from "../../../assets/blog3.png";
 import { BsArrowRight } from "react-icons/bs";
+import Image from "next/image"
+
 const Blogs = () => {
     const blogData = [
         {
@@ -32,7 +34,7 @@ const Blogs = () => {
                 {blogData.map((items, i) => {
                     return (
                         <div key={i} className="w-[300px] blog rounded-md ">
-                            <img src={items.img} alt="" />
+                            <Image src={items.img} alt="" />
                             <div className="px-6 py-4">
                                 <h2 className="font-bold text-xl">
                                     {items.title}

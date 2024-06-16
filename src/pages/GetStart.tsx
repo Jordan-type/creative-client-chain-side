@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image"
-import { Link } from "react-router-dom";
-import img_getstart from "../../assets/getstart.png";
+import Link from "next/link";
+import img_getstart from "../assets/getstart.png";
 
 const GetStart: React.FC = () => {
     return (
@@ -9,13 +9,13 @@ const GetStart: React.FC = () => {
             <div className="flex flex-col left-side  w-full gap-2 px-10 py-10 lg:py-12 ">
                 {/* Heading */}
                 <div className=" flex w-[90%] justify-between font-bold items-center text-sm lg:text-xl">
-                    <Link to={"/"} className="text-primaryColor">
+                    <Link href={"/"} className="text-primaryColor">
                         creative
                         <span className="text-secondaryColor">list</span>
                     </Link>
 
                     <Link
-                        to={"/about"}
+                        href={"/about"}
                         className="text-secondaryColor hover:text-primaryColor"
                     >
                         About
@@ -38,13 +38,13 @@ const GetStart: React.FC = () => {
 
                 <div className="flex w-full gap-4">
                     <Link
-                        to={"/client/register"}
+                        href={"/client/register"}
                         className="bg-primaryColor text-center hover:bg-purple-950 text-white w-[150px] duration-300 py-3 rounded-3xl"
                     >
                         Hire Creative
                     </Link>
                     <Link
-                        to={"/creative/register"}
+                        href={"/creative/register"}
                         className="bg-transparent border text-center border-primaryColor hover:bg-purple-950 w-[150px] duration-300 py-3 rounded-3xl text-primaryColor hover:text-[#fff]"
                     >
                         Skill sign up

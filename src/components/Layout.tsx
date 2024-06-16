@@ -10,7 +10,7 @@ const Layout: FC<Props> = ({ children }) => {
         <>
             {/* <div className=" overflow-hidden flex flex-col justify-center h-screen   "> */}
                 <Header/>
-                <div className="py-16  max-w-7xl mx-auto space-y-8 sm:px-6 lg:px-8">
+                <div >
                     {children}
                 </div>
                 <Footer />

@@ -41,9 +41,7 @@ export default NextAuth({
   ],
   callbacks: {
     async jwt({ token, user }: any) {
-      console.log(
-        "<===user===>", user
-      )
+      console.log("<===user===>", user)
       if (user) {
         token.accessToken = user.accessToken;
         token.refreshToken = user.refreshToken;

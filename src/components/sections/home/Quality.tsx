@@ -1,7 +1,7 @@
-import freelance from "../../assets/freelance.png";
-import quality from "../../assets/quality.png";
-import payment from "../../assets/payment.png";
-import protection from "../../assets/protection.png";
+import freelance from "../../../assets/freelance.png";
+import quality from "../../../assets/quality.png";
+import payment from "../../../assets/payment.png";
+import protection from "../../../assets/protection.png";
 import Image from "next/image"
 
 const Quality = () => {

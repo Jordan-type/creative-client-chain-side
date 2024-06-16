@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import signup from "../../assets/signup.png";
-import InputField from "../ui/InputField";
 import { MdOutlineMail } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa";
-import passicon from "../../assets/passicon.svg";
-import { Link } from "react-router-dom";
-import { message } from "antd";
+import Link from "next/link"
 import Image from "next/image"
+import { message } from "antd";
+
+import passicon from "../../assets/passicon.svg";
+import signup from "../../assets/signup.png";
+import InputField from "../ui/InputField";
 
 const Signup = () => {
     const [messageApi, contextHolder] = message.useMessage();
@@ -126,7 +127,7 @@ const Signup = () => {
                     <p className="text-[#71717A] font-light text-center mt-2">
                         You have an account?{" "}
                         <Link
-                            to={"/login"}
+                            href={"/login"}
                             className="text-[#8098F9] font-semibold"
                         >
                             Login now

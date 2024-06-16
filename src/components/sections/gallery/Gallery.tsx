@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import GallerySlider from "./GallerySlider";
 import "./Gallery.css";
-import Loader from "../../components/loader/Loader";
+import Loader from "../../loader/Loader";
 
 // import GalleryCard from "./GalleryCard";
 

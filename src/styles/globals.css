@@ -1,101 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    outline: none;
+}
+
+/* Navbar styles */
+.navbar {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    backdrop-filter: blur(4px);
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: 0.3s ease-in;
+}
+
+.stick {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: 0.3s ease-out;
+    border-radius: 0 !important;
+}
+
+/* Blog styles */
+.blog {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+/* About background styles */
+.aboutbg {
+    background: url("../assets/about.png") center center no-repeat;
+    background-size: cover;
+    height: calc(100vh - 67px);
+}
+
+/* Service swiper styles */
+.abcd .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+    left: 5% !important;
+}
+
+/* Left arrow icon for Dashboard */
+.leftArrowIcon::after {
+    position: absolute;
+    right: 0;
+    content: "";
+    border-right: 22px solid #49326b;
+    border-top: 22px solid transparent;
+    border-bottom: 22px solid transparent;
+}
+
 /* Antd Modal */
 :where(.css-dev-only-do-not-override-1m62vyb).ant-modal .ant-modal-content {
-  padding: 0 !important;
+    padding: 0 !important;
 }
-/* Hide Scrolbar */
+
+/* Hide Scrollbar */
 .scrollbar-hidden::-webkit-scrollbar {
-  width: 5px; /* Adjust this value to match your design */
-  background-color: transparent; /* Change this to the background color of your container */
+    width: 5px; /* Adjust this value to match your design */
+    background-color: transparent; /* Change this to the background color of your container */
 }
 
 .scrollbar-hidden::-webkit-scrollbar-thumb {
-  background-color: transparent; /* This will hide the scrollbar thumb */
+    background-color: transparent; /* This will hide the scrollbar thumb */
 }
 
 /* For Firefox */
 .scrollbar-hidden {
-  scrollbar-width: thin;
+    scrollbar-width: thin;
 }
 
 .scrollbar-hidden::-moz-scrollbar-thumb {
-  background-color: transparent; /* This will hide the scrollbar thumb in Firefox */
+    background-color: transparent; /* This will hide the scrollbar thumb in Firefox */
 }
 
-
-
-  @layer base {
+/* Tailwind CSS Variables */
+@layer base {
     :root {
-      --background: 0 0% 100%;
-      --foreground: 222.2 84% 4.9%;
-
-      --card: 0 0% 100%;
-      --card-foreground: 222.2 84% 4.9%;
-
-      --popover: 0 0% 100%;
-      --popover-foreground: 222.2 84% 4.9%;
-
-      --primary: 222.2 47.4% 11.2%;
-      --primary-foreground: 210 40% 98%;
-
-      --secondary: 210 40% 96.1%;
-      --secondary-foreground: 222.2 47.4% 11.2%;
-
-      --muted: 210 40% 96.1%;
-      --muted-foreground: 215.4 16.3% 46.9%;
-
-      --accent: 210 40% 96.1%;
-      --accent-foreground: 222.2 47.4% 11.2%;
-
-      --destructive: 0 84.2% 60.2%;
-      --destructive-foreground: 210 40% 98%;
-
-      --border: 214.3 31.8% 91.4%;
-      --input: 214.3 31.8% 91.4%;
-      --ring: 222.2 84% 4.9%;
-
-      --radius: 0.5rem;
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+        --primary: 222.2 47.4% 11.2%;
+        --primary-foreground: 210 40% 98%;
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 222.2 84% 4.9%;
+        --radius: 0.5rem;
     }
 
     .dark {
-      --background: 222.2 84% 4.9%;
-      --foreground: 210 40% 98%;
-
-      --card: 222.2 84% 4.9%;
-      --card-foreground: 210 40% 98%;
-
-      --popover: 222.2 84% 4.9%;
-      --popover-foreground: 210 40% 98%;
-
-      --primary: 210 40% 98%;
-      --primary-foreground: 222.2 47.4% 11.2%;
-
-      --secondary: 217.2 32.6% 17.5%;
-      --secondary-foreground: 210 40% 98%;
-
-      --muted: 217.2 32.6% 17.5%;
-      --muted-foreground: 215 20.2% 65.1%;
-
-      --accent: 217.2 32.6% 17.5%;
-      --accent-foreground: 210 40% 98%;
-
-      --destructive: 0 62.8% 30.6%;
-      --destructive-foreground: 210 40% 98%;
-
-      --border: 217.2 32.6% 17.5%;
-      --input: 217.2 32.6% 17.5%;
-      --ring: 212.7 26.8% 83.9%;
+        --background: 222.2 84% 4.9%;
+        --foreground: 210 40% 98%;
+        --card: 222.2 84% 4.9%;
+        --card-foreground: 210 40% 98%;
+        --popover: 222.2 84% 4.9%;
+        --popover-foreground: 210 40% 98%;
+        --primary: 210 40% 98%;
+        --primary-foreground: 222.2 47.4% 11.2%;
+        --secondary: 217.2 32.6% 17.5%;
+        --secondary-foreground: 210 40% 98%;
+        --muted: 217.2 32.6% 17.5%;
+        --muted-foreground: 215 20.2% 65.1%;
+        --accent: 217.2 32.6% 17.5%;
+        --accent-foreground: 210 40% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 217.2 32.6% 17.5%;
+        --input: 217.2 32.6% 17.5%;
+        --ring: 212.7 26.8% 83.9%;
     }
+} 
+
+@layer base {
+  * {
+    @apply border-border;
   }
-/* 
-  @layer base {
-    * {
-      @apply border-border;
-    }
-    body {
-      @apply bg-black text-foreground;
-    }
-  } */
+  body {
+    /* @apply bg-black text-foreground; */
+  }
+}

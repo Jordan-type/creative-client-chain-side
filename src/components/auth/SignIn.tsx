@@ -14,7 +14,7 @@ import InputField from "../ui/InputField";
 
 import { signInUser, userSignUp } from "@/config/ApiConfig"
 
-const Login: React.FC = () => {
+const SignIn: React.FC = () => {
 
     const router = useRouter();
     const [messageApi, contextHolder] = message.useMessage();
@@ -207,4 +207,4 @@ const Login: React.FC = () => {
     );
 };
 
-export default Login;
+export default SignIn;

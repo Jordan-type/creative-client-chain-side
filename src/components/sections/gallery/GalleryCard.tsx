@@ -7,6 +7,7 @@ import img_5 from "../../assets/category3.png";
 import img_6 from "../../assets/service1.png";
 import img_7 from "../../assets/service2.png";
 import img_8 from "../../assets/service3.png";
+import Image from "next/image";
 
 const cardData = [
     {
@@ -100,7 +101,7 @@ const GalleryCard = () => {
                     className="inline-block m-2 min-w-full rounded overflow-hidden h-fit  border border-gray-200 font-montserrat"
                     // Remove fixed height and allow cards to adjust their height
                 >
-                    <img
+                    <Image
                         className="h-auto w-full object-cover" // Remove "object-cover" class and set width to full
                         src={card.image}
                         alt={card.title}

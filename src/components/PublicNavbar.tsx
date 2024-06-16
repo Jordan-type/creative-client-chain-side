@@ -4,6 +4,21 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { Drawer } from "antd";
 import Link from "next/link";
 
+const mainMenuItems = [
+    { name: 'Home', link: '/' },
+    { name: 'Blog', link: '/blog' },
+    { name: 'Gallery', link: '/gallery' },
+    { name: 'About', link: '/about' },
+    { name: 'Contact us', link: '/contact' }
+];
+
+const GetStartedMenuItems = [
+    { name: 'Get Start', link: '/getStart' },
+    { name: 'Login', link: '/login' }
+]
+
+
+
 const PublicNavbar: React.FC = () => {
     const router = useRouter();
     const { pathname } = router;
@@ -55,66 +70,40 @@ const PublicNavbar: React.FC = () => {
                 />
                 <div className="lg:flex hidden items-center gap-8">
                     <ul className="flex items-center gap-8">
-                        <li>
-                            <Link href="/">Home</Link>
-                        </li>
-                        <li>
-                            <Link href="/blog">Blog</Link>
-                        </li>
-                        <li>
-                            <Link href="/gallery">Gallery</Link>
-                        </li>
-                        <li>
-                            <Link href="/about">About</Link>
-                        </li>
-                        <li>
-                            <Link href="/contact">Contact us</Link>
-                        </li>
+                    {mainMenuItems.map(item => (
+                            <li key={item.name}>
+                                <Link href={item.link}>{item.name}</Link>
+                            </li>
+                        ))}
                     </ul>
                     <div className="flex items-center gap-4">
-                        <Link href="/getstart">
-                            <button className="bg-primaryColor rounded-lg px-6 py-2 text-white">
-                                Get start
-                            </button>
-                        </Link>
-                        <Link href="/login">
-                            <button className="border-2 border-primaryColor rounded-lg px-6 py-2 text-primaryColor">
-                                Login
-                            </button>
-                        </Link>
+                    {GetStartedMenuItems.map(item => (
+                            <Link href={item.link} key={item.name}>
+                                <button className={`px-6 py-2 rounded-lg ${item.name === 'Get Start' ? 'bg-primaryColor text-white' : 'border-2 border-primaryColor text-primaryColor'}`}>
+                                    {item.name}
+                                </button>
+                            </Link>
+                        ))}
                     </div>
                 </div>
             </div>
             <Drawer placement="right" onClose={onClose} open={open}>
                 <div className="flex flex-col gap-8">
                     <ul className="flex flex-col gap-8">
-                        <li>
-                            <Link href="/">Home</Link>
-                        </li>
-                        <li>
-                            <Link href="/blog">Blog</Link>
-                        </li>
-                        <li>
-                            <Link href="/gallery">Gallery</Link>
-                        </li>
-                        <li>
-                            <Link href="/about">About</Link>
-                        </li>
-                        <li>
-                            <Link href="/contact">Contact us</Link>
-                        </li>
+                    {mainMenuItems.map(item => (
+                            <li key={item.name}>
+                                <Link href={item.link}>{item.name}</Link>
+                            </li>
+                        ))}
                     </ul>
                     <div className="flex flex-col gap-4">
-                        <Link href="/getstart">
-                            <button className="bg-primaryColor rounded-lg px-6 py-2 text-white">
-                                Get start
-                            </button>
-                        </Link>
-                        <Link href="/login">
-                            <button className="border-2 border-primaryColor rounded-lg px-6 py-2 text-primaryColor">
-                                Login
-                            </button>
-                        </Link>
+                    {GetStartedMenuItems.map(item => (
+                            <Link href={item.link} key={item.name}>
+                                <button className={`px-6 py-2 rounded-lg ${item.name === 'Get Start' ? 'bg-primaryColor text-white' : 'border-2 border-primaryColor text-primaryColor'}`}>
+                                    {item.name}
+                                </button>
+                            </Link>
+                        ))}
                     </div>
                 </div>
             </Drawer>

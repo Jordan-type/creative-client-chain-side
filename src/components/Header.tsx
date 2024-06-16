@@ -5,8 +5,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useConnect } from "wagmi";
 import { injected } from "wagmi/connectors";
-// import AuthNavbar from "./AuthNavbar";
-// import PublicNavbar from "./PublicNavbar";
+import AuthNavbar from "./AuthNavbar";
+import PublicNavbar from "./PublicNavbar";
 
 interface HeaderProps {
     isAuthenticated?: boolean;
@@ -24,7 +24,7 @@ export default function Header({ isAuthenticated }: HeaderProps) {
     }, []);
 
     return (
-        <Disclosure as="nav" className="bg-prosperity border-b border-black">
+        <Disclosure as="nav" className="">
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -93,7 +93,7 @@ export default function Header({ isAuthenticated }: HeaderProps) {
                         </div>
                     </Disclosure.Panel>
 
-                    {/* {isAuthenticated ? <AuthNavbar /> : <PublicNavbar />} */}
+                    {isAuthenticated ? <AuthNavbar /> : <PublicNavbar />}
                 </>
             )}
         </Disclosure>

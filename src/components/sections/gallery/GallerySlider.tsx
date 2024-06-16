@@ -6,6 +6,7 @@ import slide1 from "../../assets/slide6.png";
 
 import slide2 from "../../assets/slide8.png";
 import slide3 from "../../assets/slide9.jpg";
+import Image from "next/image";
 
 // Gallery Slide Data
 const gallerySlideData = [
