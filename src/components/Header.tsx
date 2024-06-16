@@ -5,11 +5,11 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useConnect } from "wagmi";
 import { injected } from "wagmi/connectors";
-import AuthNavbar from "./AuthNavbar";
-import PublicNavbar from "./PublicNavbar";
+// import AuthNavbar from "./AuthNavbar";
+// import PublicNavbar from "./PublicNavbar";
 
 interface HeaderProps {
-    isAuthenticated: boolean;
+    isAuthenticated?: boolean;
 }
 
 export default function Header({ isAuthenticated }: HeaderProps) {
@@ -93,7 +93,7 @@ export default function Header({ isAuthenticated }: HeaderProps) {
                         </div>
                     </Disclosure.Panel>
 
-                    {isAuthenticated ? <AuthNavbar /> : <PublicNavbar />}
+                    {/* {isAuthenticated ? <AuthNavbar /> : <PublicNavbar />} */}
                 </>
             )}
         </Disclosure>
