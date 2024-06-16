@@ -1,0 +1,63 @@
+                    {/* For Charts data */}
+                    {/* For Charts data */}
+                    {/* For Charts data */}
+
+
+                    <div className="flex flex-col w-full h-full my-5">
+                        <h1 className=" text-3xl  lg:text-5xl font-garamond text-white font-semibold mb-5 w-full">
+                            {user.name} Activities,
+                        </h1>
+
+                        <div className="flex flex-col lg:flex-row w-full h-full justify-around items-center lg:items-start my-5 gap-10">
+                            {/* Card 1 */}
+
+                            <div className="flex flex-col bg-purple-950 text-[#fff] w-5/6 lg:w-full gap-3 rounded-lg ">
+                                <div className="flex flex-col w-full h-full p-2">
+                                    <p className="font-bold text-lg lg:text-2xl text-[#fff]">
+                                        Orders
+                                    </p>
+                                    {/* data comes from database */}
+                                    <p className="font-semibold text-3xl ">
+                                        23
+                                    </p>
+                                    <p className="text-xs font-light mt-2">
+                                        (last 30 days)
+                                    </p>
+                                </div>
+
+                                <div className="w-full border" />
+
+                                {/* Charts */}
+                                <div className="w-full flex justify-center items-center p-5">
+                                    <DoughnutChart />
+                                </div>
+                            </div>
+
+                            {/* Card 2 */}
+
+                            <div className="flex flex-col bg-purple-950 text-[#fff] w-5/6 lg:w-full gap-3 rounded-lg ">
+                                <div className="flex flex-col w-full h-full p-2">
+                                    <p className="font-bold text-lg lg:text-2xl text-[#fff]">
+                                        Total Job Post
+                                    </p>
+                                    {/* data comes from database */}
+                                    <p className="font-semibold text-3xl ">
+                                        23
+                                    </p>
+                                    <p className="text-xs font-light mt-2">
+                                        (last 30 days)
+                                    </p>
+                                </div>
+
+                                <div className="w-full border" />
+
+                                {/* Charts */}
+                                <div className="w-full flex justify-center items-center p-5">
+                                    <PieChart />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* For Charts data */}
+                    {/* For Charts data */}
