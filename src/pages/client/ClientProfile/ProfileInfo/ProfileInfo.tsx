@@ -1,11 +1,41 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
-// import icons
 import { AiFillStar } from "react-icons/ai";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
+import Link from "next/link"; // Use Link from next/link for Next.js
 
-const ProfileInfo = ({ user }) => {
+interface SocialLink {
+    platform: string;
+    link: string;
+}
+
+interface InboxMessage {
+    avatar: string;
+    sender: string;
+    message: string;
+    timestamp: string;
+}
+
+interface UserReview {
+    avatar: string;
+    reviewer: string;
+    rating: number;
+    reviewText: string;
+}
+
+interface User {
+    username: string;
+    userReview: UserReview[];
+    userImage: string;
+    userRating: number;
+    userInbox: InboxMessage[];
+    socialLinks: SocialLink[];
+}
+
+interface ProfileInfoProps {
+    user: User;
+}
+
+const ProfileInfo: React.FC<ProfileInfoProps> = ({ user }) => {
     const {
         username,
         userReview,
@@ -26,7 +56,6 @@ const ProfileInfo = ({ user }) => {
 
                 <div className="flex w-full items-center justify-between mt-4">
                     {/* name */}
-
                     <p className="text-lg font-garamond font-bold">
                         {username}
                     </p>
@@ -39,14 +68,14 @@ const ProfileInfo = ({ user }) => {
                 {/* buttons */}
                 <div className="w-full flex flex-col gap-4 mt-5">
                     <Link
-                        to="/client/post/job"
+                        href="/client/post/job"
                         className="p-2 w-full font-semibold text-center rounded-md bg-primaryColor hover:bg-purple-700 text-white duration-200"
                     >
                         Post a Job
                     </Link>
 
                     <Link
-                        to="/client/orders"
+                        href="/client/orders"
                         className="p-2 w-full font-semibold text-center rounded-md bg-primaryColor hover:bg-purple-700 text-white duration-200"
                     >
                         Active Orders
@@ -54,7 +83,6 @@ const ProfileInfo = ({ user }) => {
                 </div>
 
                 {/* Social  Links */}
-
                 <p className="font-bold w-full mt-5 border-b">Social links</p>
 
                 <div className="flex gap-5 mt-5">
@@ -78,7 +106,6 @@ const ProfileInfo = ({ user }) => {
             </div>
 
             {/* User inbox */}
-
             <div className="w-full max-h-500px border  mt-5">
                 {/* Inbox title */}
                 <div className="flex items-center justify-between border-b py-5 px-3">
@@ -86,7 +113,7 @@ const ProfileInfo = ({ user }) => {
                         Inbox
                     </h2>
                     <Link
-                        to="user/inbox"
+                        href="/user/inbox"
                         className="text-primaryColor hover:underline"
                     >
                         View All
@@ -97,7 +124,7 @@ const ProfileInfo = ({ user }) => {
                 <div className="flex flex-col overflow-y-auto">
                     {userInbox.map((message, index) => (
                         <Link
-                            to={`/user/inbox/${index}`}
+                            href={`/user/inbox/${index}`}
                             key={index}
                             className="flex items-center gap-3 p-2 border-b rounded hover:bg-gray-200"
                         >
@@ -123,7 +150,6 @@ const ProfileInfo = ({ user }) => {
             </div>
 
             {/* user Review */}
-
             <div className="w-full max-h-500px border  mt-5">
                 {/* Review title */}
                 <div className="flex items-center justify-between border-b py-5 px-3">
@@ -131,7 +157,7 @@ const ProfileInfo = ({ user }) => {
                         Reviews
                     </h2>
                     <Link
-                        to="/reviews"
+                        href="/reviews"
                         className="text-primaryColor hover:underline"
                     >
                         View All

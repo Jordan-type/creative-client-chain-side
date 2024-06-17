@@ -149,7 +149,7 @@ const ExploreInfo = () => {
     // =====================
 
     // Function to shuffle an array
-    const shuffleArray = (array) => {
+    const shuffleArray = (array: any) => {
         const shuffledArray = [...array];
         for (let i = shuffledArray.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -185,7 +185,7 @@ const ExploreInfo = () => {
                                 className="h-28 w-32 relative group"
                                 key={i}
                             >
-                                <img
+                                <Image
                                     src={itemImg}
                                     alt={title}
                                     className="w-full h-full object-cover"
@@ -217,7 +217,7 @@ const ExploreInfo = () => {
                         key={mostRecentPost.id}
                         className="w-full border border-gray-300 rounded-lg p-4 hover:shadow-md transition duration-300 flex flex-col gap-3"
                     >
-                        <img
+                        <Image
                             src={mostRecentPost.postImage}
                             alt={mostRecentPost.title}
                             className="w-full h-32 object-cover"

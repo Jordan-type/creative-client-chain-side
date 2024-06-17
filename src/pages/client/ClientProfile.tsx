@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from "react";
 
+import Image, { StaticImageData } from "next/image";
 import avatarImg from "../../../assets/author.jpg";
 import ProfileInfo from "./ClientProfile/ProfileInfo/ProfileInfo";
 import PostInfo from "./ClientProfile/PostInfo/PostInfo";
@@ -8,9 +9,56 @@ import PostLoader from "../../components/loader/client/profile/PostLoader";
 
 // Here am using lazy loading because am not sure about the API yet.
 
+// Lazy loading PostInfo component
 const LazyPost = lazy(() => import("./ClientProfile/PostInfo/PostInfo"));
 
-const user = {
+interface InboxMessage {
+    sender: string;
+    message: string;
+    timestamp: string;
+    avatar: string;
+}
+
+interface UserReview {
+    reviewer: string;
+    rating: number;
+    reviewText: string;
+    timestamp: string;
+    avatar: string;
+}
+
+interface Mention {
+    username: string;
+    avatar: string;
+}
+
+interface UserPost {
+    id: number;
+    title: string;
+    content: string;
+    timestamp: string;
+    postImage: string | StaticImageData;
+    mentions: Mention[];
+    liked: boolean;
+    likes: number;
+}
+
+interface SocialLink {
+    platform: string;
+    link: string;
+}
+
+interface User {
+    username: string;
+    userImage: string | StaticImageData;
+    userRating: number;
+    userInbox: InboxMessage[];
+    userReview: UserReview[];
+    userPosts: UserPost[];
+    socialLinks: SocialLink[];
+}
+
+const user: User = {
     username: "RinaMaria",
     userImage: avatarImg,
     userRating: 4.5,
@@ -100,29 +148,21 @@ const user = {
     ],
 };
 
-const ClientProfile = () => {
+const ClientProfile: React.FC = () => {
     return (
         <main className="h-full w-full max-w-[1400px] m-auto">
             <section className="w-full h-full flex flex-col lg:flex-row justify-around items-start p-2 gap-5">
                 {/* left Profile */}
-
                 <div className=" w-full lg:w-4/12 p-3 border">
-                    {/* Profile Name, Image, Ratings, button */}
                     <ProfileInfo user={user} />
                 </div>
-
                 {/* Middle Posts */}
-
-                {/* Lazy loader */}
                 <div className=" p-3 w-full lg:w-8/12">
                     <Suspense fallback={<PostLoader />}>
                         <LazyPost user={user} />
-                        {/* <PostInfo user={user} /> */}
                     </Suspense>
                 </div>
-
                 {/* Right Column Ads, Explore etc */}
-
                 <div className="w-full lg:w-4/12 p-3">
                     <ExploreInfo />
                 </div>
