@@ -14,7 +14,7 @@ const mainMenuItems = [
 
 const GetStartedMenuItems = [
     { name: 'Get Start', link: '/getStart' },
-    { name: 'Login', link: '/login' }
+    { name: 'Login', link: '/auth/signin' }
 ]
 
 
