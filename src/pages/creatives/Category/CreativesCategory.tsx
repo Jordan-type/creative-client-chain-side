@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import img1 from "../../../assets/creative/cate1.png";
 import img2 from "../../../assets/creative/cate-2.png";
 import img3 from "../../../assets/creative/cate3.png";
@@ -44,7 +45,7 @@ const CreativesCategory = () => {
                             }`}
                             key={i}
                         >
-                            <img
+                            <Image
                                 src={item.cover_img}
                                 alt="creativelist"
                                 className="rounded-t-md w-52 lg:w-80 h-full"

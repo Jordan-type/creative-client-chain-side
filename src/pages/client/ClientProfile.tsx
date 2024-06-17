@@ -4,7 +4,7 @@ import avatarImg from "../../../assets/author.jpg";
 import ProfileInfo from "./ClientProfile/ProfileInfo/ProfileInfo";
 import PostInfo from "./ClientProfile/PostInfo/PostInfo";
 import ExploreInfo from "./ClientProfile/ExploreInfo/ExploreInfo";
-import PostLoader from "../../loader/Client/Profile/PostLoader";
+import PostLoader from "../../components/loader/client/profile/PostLoader";
 
 // Here am using lazy loading because am not sure about the API yet.
 
