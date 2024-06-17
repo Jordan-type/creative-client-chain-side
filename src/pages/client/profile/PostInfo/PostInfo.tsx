@@ -1,26 +1,49 @@
 import React, { useState } from "react";
 import { FaEllipsisH, FaHeart, FaRegHeart } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import Link from "next/link"; // For Next.js use Link from 'next/link'
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+interface Mention {
+    username: string;
+    avatar: string;
+}
+
+interface Post {
+    id: number;
+    title: string;
+    content: string;
+    mentions: Mention[];
+    postImage: string;
+    liked: boolean;
+    likes: number;
+}
+
+interface User {
+    userPosts: Post[];
+}
+
+interface PostInfoProps {
+    user: User;
+}
+
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const slowrender = async () => {
-    await sleep(200000);
+    await sleep(2000); // Changed to 2000 ms (2 seconds) for a reasonable delay
 };
 
 slowrender();
 
-const PostInfo = ({ user }) => {
+const PostInfo: React.FC<PostInfoProps> = ({ user }) => {
     const { userPosts } = user;
 
-    const [dropdownStates, setDropdownStates] = useState(
-        userPosts.reduce((acc, post) => {
+    const [dropdownStates, setDropdownStates] = useState<Record<number, boolean>>(
+        userPosts.reduce((acc: Record<number, boolean>, post) => {
             acc[post.id] = false;
             return acc;
         }, {})
     );
 
-    const handleDropdownToggle = (id) => {
+    const handleDropdownToggle = (id: number) => {
         // Toggle the state for the clicked post
         setDropdownStates((prevStates) => ({
             ...prevStates,
@@ -90,7 +113,7 @@ const PostInfo = ({ user }) => {
                             <div className="flex gap-2">
                                 {mentions.map((mention, index) => (
                                     <Link
-                                        to={`/${mention.username}`}
+                                        href={`/${mention.username}`}
                                         key={index}
                                     >
                                         <img
