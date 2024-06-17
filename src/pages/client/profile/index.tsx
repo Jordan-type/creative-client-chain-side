@@ -60,7 +60,7 @@ interface User {
     socialLinks: SocialLink[];
 }
 
-const user: User = {
+const userData: User = {
     username: "RinaMaria",
     userImage:"https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
     userRating: 4.5,
@@ -146,29 +146,27 @@ const user: User = {
     ],
 };
 
-const ClientProfile: React.FC = () => {
+const ClientProfile = () => {
     return (
-        <main className="h-full w-full max-w-[1400px] m-auto">
-            <section className="w-full h-full flex flex-col lg:flex-row justify-around items-start p-2 gap-5">
-                {/* Left Profile */}
-                <div className="w-full lg:w-4/12 p-3 border">
-                <ProfileInfo user={user} />
-                </div>
-                {/* Middle Posts */}
-       
-
-
-                <div className=" p-3 w-full lg:w-8/12">
-                <ExploreInfo />
-                </div>
-
-                {/* Right Column Ads, Explore etc */}
-                <div className="w-full lg:w-4/12 p-3">
-                    <ExploreInfo />
-                </div>
-            </section>
-        </main>
+      <main className="h-full w-full max-w-[1400px] m-auto">
+        <section className="w-full h-full flex flex-col lg:flex-row justify-around items-start p-2 gap-5">
+          {/* Left Profile */}
+          <div className="w-full lg:w-4/12 p-3 border">
+            <ProfileInfo user={userData} />
+          </div>
+  
+          {/* Middle Posts */}
+          <div className="p-3 w-full lg:w-8/12">
+           <PostLoader/>
+          </div>
+  
+          {/* Right Column Ads, Explore etc */}
+          <div className="w-full lg:w-4/12 p-3">
+            <ExploreInfo />
+          </div>
+        </section>
+      </main>
     );
-};
-
-export default ClientProfile;
+  };
+  
+  export default ClientProfile;

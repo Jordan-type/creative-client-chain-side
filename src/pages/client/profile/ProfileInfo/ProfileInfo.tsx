@@ -2,7 +2,7 @@ import React from "react";
 import { AiFillStar } from "react-icons/ai";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
 import Link from "next/link";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 export interface User {
     username: string;
@@ -13,7 +13,7 @@ export interface User {
         reviewText: string;
         timestamp: string;
     }[];
-    userImage: string;
+    userImage: string | StaticImageData; 
     userRating: number; // Ensure userRating is a number too
     userInbox: {
         avatar: string;
