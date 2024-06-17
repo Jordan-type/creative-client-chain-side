@@ -1,14 +1,16 @@
 import React, { Suspense, lazy } from "react";
 
 import avatarImg from "../../../assets/author.jpg";
-import ProfileInfo from "./ClientProfile/ProfileInfo/ProfileInfo";
-import PostInfo from "./ClientProfile/PostInfo/PostInfo";
-import ExploreInfo from "./ClientProfile/ExploreInfo/ExploreInfo";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import PostInfo from "./PostInfo/PostInfo";
+import ExploreInfo from "./ExploreInfo/ExploreInfo";
 import PostLoader from "../../loader/Client/Profile/PostLoader";
+
+
 
 // Here am using lazy loading because am not sure about the API yet.
 
-const LazyPost = lazy(() => import("./ClientProfile/PostInfo/PostInfo"));
+const LazyPost = lazy(() => import("./PostInfo/PostInfo"));
 
 const user = {
     username: "RinaMaria",
