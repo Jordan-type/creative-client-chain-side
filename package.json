@@ -23,6 +23,7 @@
     "@wagmi/connectors": "4.1.18",
     "antd": "^5.7.0",
     "axios": "^1.7.2",
+    "chart.js": "^4.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "ethers": "^6.12.2",

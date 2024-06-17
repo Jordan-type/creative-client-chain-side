@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
 
-const ProfileInfo = ({ user }) => {
+const ProfileInfo = ({ use }) => {
     const {
         username,
         userReview,

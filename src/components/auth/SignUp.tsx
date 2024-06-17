@@ -8,12 +8,17 @@ import { message } from "antd";
 import passicon from "../../assets/passicon.svg";
 import signup from "../../assets/signup.png";
 import InputField from "../ui/InputField";
+import Input from "antd/es/input/Input";
 
 const Signup = () => {
     const [messageApi, contextHolder] = message.useMessage();
 
     const [info, setInfo] = useState({
+        first_name: "",
+        last_name: "",
         username: "",
+        phone_number: "",
+        userAddress: "",
         email: "",
         password: "",
         confirmPassword: "",
@@ -24,7 +29,11 @@ const Signup = () => {
     };
     const handleSubmit = () => {
         if (
+            !info.first_name ||
+            !info.last_name ||
             !info.username ||
+            !info.phone_number ||
+            !info.userAddress ||
             !info.email ||
             !info.password ||
             !info.confirmPassword
@@ -62,6 +71,34 @@ const Signup = () => {
                         Unlock all features
                     </p>
                     <div className="flex flex-col gap-y-3 mt-6">
+                        <InputField
+                            onChange={handleChange}
+                            name={"first_name"}
+                            placeholder={"First Name"}
+                            type={"text"}
+                            icon={null}
+                        />
+                        <InputField
+                            onChange={handleChange}
+                            name={"last_name"}
+                            placeholder={"Last Name"}
+                            type={"text"}
+                            icon={null}
+                        />
+                        <InputField
+                            onChange={handleChange}
+                            name={"phone_number"}
+                            placeholder={"Phone Number"}
+                            type={"text"}
+                            icon={null}
+                        />
+                        <InputField
+                            onChange={handleChange}
+                            name={"userAddress"}
+                            placeholder={"Address"}
+                            type={"text"}
+                            icon={null}
+                        />
                         <InputField
                             onChange={handleChange}
                             name={"username"}
