@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 // importing icons
 
@@ -22,7 +23,8 @@ import {
 import { GiStarsStack } from "react-icons/gi";
 
 const Sidebar = () => {
-    const { pathname } = useLocation();
+    const router = useRouter();
+    const { pathname } = router;
 
     const [ordersDropdownOpen, setOrdersDropdownOpen] = useState(false);
     const [reviewDropdownOpen, setReviewDropdownOpen] = useState(false);
@@ -39,7 +41,7 @@ const Sidebar = () => {
         {
             key: "1",
             label: (
-                <Link to={"/client/dashboard/orders/completeorders"}>
+                <Link href="/client/dashboard/orders/completeorders">
                     Completed Orders
                 </Link>
             ),
@@ -47,7 +49,7 @@ const Sidebar = () => {
         {
             key: "2",
             label: (
-                <Link to={"/client/dashboard/orders/activeorders"}>
+                <Link href="/client/dashboard/orders/activeorders">
                     Active Orders
                 </Link>
             ),
@@ -55,7 +57,7 @@ const Sidebar = () => {
         {
             key: "3",
             label: (
-                <Link to={"/client/dashboard/orders/cancelorders"}>
+                <Link href="/client/dashboard/orders/cancelorders">
                     Cancelled Orders
                 </Link>
             ),
@@ -66,7 +68,7 @@ const Sidebar = () => {
         {
             key: "1",
             label: (
-                <Link to={"/client/dashboard/reviews/myreviews"}>
+                <Link href="/client/dashboard/reviews/myreviews">
                     My Reviews
                 </Link>
             ),
@@ -74,7 +76,7 @@ const Sidebar = () => {
         {
             key: "2",
             label: (
-                <Link to={"/client/dashboard/reviews/writtenreviews"}>
+                <Link href="/client/dashboard/reviews/writtenreviews">
                     Written Reviews
                 </Link>
             ),
@@ -86,8 +88,8 @@ const Sidebar = () => {
             <div className="flex flex-col justify-start items-start w-full h-full gap-2 relative">
                 {/* Dashboard */}
                 <Link
-                    to={"/client/dashboard"}
-                    className={` flex py-2 px-5 gap-2 justify-start w-full items-center font-semibold text-lg text-primaryColor hover:text-purple-700 ${
+                    href="/client/dashboard"
+                    className={`flex py-2 px-5 gap-2 justify-start w-full items-center font-semibold text-lg text-primaryColor hover:text-purple-700 ${
                         pathname === "/client/dashboard"
                             ? "bg-purple-100 leftArrowIcon text-purple-700"
                             : ""
@@ -102,7 +104,7 @@ const Sidebar = () => {
                     <button
                         onClick={toggleOrdersDropdown}
                         className={`${
-                            pathname === "/client/dashboard/orders"
+                            pathname.startsWith("/client/dashboard/orders")
                                 ? "bg-purple-100 leftArrowIcon text-purple-700"
                                 : ""
                         } flex gap-2 py-2 px-5 justify-start w-full items-center font-semibold text-lg text-primaryColor hover:text-purple-700`}
@@ -125,8 +127,8 @@ const Sidebar = () => {
                 </div>
 
                 <Link
-                    to={"/client/messages"}
-                    className={` ${
+                    href="/client/messages"
+                    className={`${
                         pathname === "/client/messages"
                             ? "bg-purple-100 leftArrowIcon text-purple-700"
                             : ""
@@ -141,7 +143,7 @@ const Sidebar = () => {
                     <button
                         onClick={toggleReviewDropdown}
                         className={`${
-                            pathname === "/client/dashboard/orders"
+                            pathname.startsWith("/client/dashboard/reviews")
                                 ? "bg-purple-100 leftArrowIcon text-purple-700"
                                 : ""
                         } flex gap-2 py-2 px-5 justify-start w-full items-center font-semibold text-lg text-primaryColor hover:text-purple-700`}
@@ -164,8 +166,8 @@ const Sidebar = () => {
                 </div>
 
                 <Link
-                    to={"/client/post/job"}
-                    className={` ${
+                    href="/client/post/job"
+                    className={`${
                         pathname === "/client/post/job"
                             ? "bg-purple-100 leftArrowIcon text-purple-700"
                             : ""
@@ -176,8 +178,8 @@ const Sidebar = () => {
                 </Link>
 
                 <Link
-                    to={"/client/referralprogram"}
-                    className={` ${
+                    href="/client/referralprogram"
+                    className={`${
                         pathname === "/client/referralprogram"
                             ? "bg-purple-100 leftArrowIcon text-purple-700"
                             : ""
@@ -188,8 +190,8 @@ const Sidebar = () => {
                 </Link>
 
                 <Link
-                    to={"/client/wallet"}
-                    className={` ${
+                    href="/client/wallet"
+                    className={`${
                         pathname === "/client/wallet"
                             ? "bg-purple-100 leftArrowIcon text-purple-700"
                             : ""
@@ -200,8 +202,8 @@ const Sidebar = () => {
                 </Link>
 
                 <Link
-                    to={"/client/rewards"}
-                    className={` ${
+                    href="/client/rewards"
+                    className={`${
                         pathname === "/client/rewards"
                             ? "bg-purple-100 leftArrowIcon text-purple-700"
                             : ""
@@ -214,8 +216,8 @@ const Sidebar = () => {
                 <div className="border w-full border-purple-900" />
 
                 <Link
-                    to={"/client/profile"}
-                    className={` ${
+                    href="/client/profile"
+                    className={`${
                         pathname === "/client/profile"
                             ? "bg-purple-100 leftArrowIcon text-purple-700"
                             : ""
@@ -226,8 +228,8 @@ const Sidebar = () => {
                 </Link>
 
                 <Link
-                    to={"/user/setting"}
-                    className={` ${
+                    href="/user/setting"
+                    className={`${
                         pathname === "/user/setting"
                             ? "bg-purple-100 leftArrowIcon text-purple-700"
                             : ""

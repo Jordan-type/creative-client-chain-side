@@ -1,5 +1,6 @@
 import React from "react";
 import Sidebar from "./Sidebar/Sidebar";
+import Image from "next/image";
 
 // importing icons
 import { IoWalletOutline } from "react-icons/io5";
@@ -132,7 +133,7 @@ const ClientDashboard = () => {
                                     <div className="flex gap-1 justify-center items-start w-5/6 lg:w-1/3 bg-[#fff] rounded-lg shadow-lg shadow-purple-950">
                                         {/* image */}
                                         <div className="w-1/3 h-36 overflow-hidden">
-                                            <img
+                                            <Image
                                                 src={categoryImage}
                                                 alt={categoryName}
                                                 className="h-36 w-auto object-cover rounded-l-lg"
