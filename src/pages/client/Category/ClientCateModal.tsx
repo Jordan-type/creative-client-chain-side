@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image"
 
 import modal1 from "../../../assets/client/modal1.png";
 
@@ -12,7 +13,7 @@ const ClientCateModal = ({ handleCancel }) => {
         <div className="h-full w-full flex py-10 px-8 flex-col gap-3 font-garamond justify-center items-center">
             {/* Image */}
             <div className="bg-primaryColor mt-2 p-5 flex items-center justify-center rounded-md">
-                <img
+                <Image
                     src={modal1}
                     className="w-[550px] h-auto"
                     alt="creativelist"

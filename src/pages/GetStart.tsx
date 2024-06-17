@@ -2,8 +2,21 @@ import React from "react";
 import Image from "next/image"
 import Link from "next/link";
 import img_getstart from "../assets/getstart.png";
+import { useRouter } from 'next/router';
 
 const GetStart: React.FC = () => {
+    const router = useRouter();
+
+
+    const handleCreativeSignUpClick = () => {
+        router.push("/creative/register");  
+    }
+
+    const handleClientSignUpClick = () => {
+        router.push("/client/register");  
+    }
+
+
     return (
         <div className="main-container font-garamond flex h-auto w-full items-start justify-between">
             <div className="flex flex-col left-side  w-full gap-2 px-10 py-10 lg:py-12 ">
@@ -43,12 +56,12 @@ const GetStart: React.FC = () => {
                     >
                         Hire Creative
                     </Link>
-                    <Link
-                        href={"/creative/register"}
-                        className="bg-transparent border text-center border-primaryColor hover:bg-purple-950 w-[150px] duration-300 py-3 rounded-3xl text-primaryColor hover:text-[#fff]"
-                    >
+                        <button
+                            onClick={handleCreativeSignUpClick}
+                            className="bg-transparent border text-center border-primaryColor hover:bg-purple-950 w-[150px] duration-300 py-3 rounded-3xl text-primaryColor hover:text-[#fff]"
+                        >
                         Skill sign up
-                    </Link>
+                    </button>
                 </div>
                 <p className="text-secondaryColor text-md lg:text-lg mt-8">
                     By signing up, you agree to the{" "}
