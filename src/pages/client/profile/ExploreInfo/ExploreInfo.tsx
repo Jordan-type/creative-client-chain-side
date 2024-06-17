@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 // Icons
 
@@ -149,7 +149,7 @@ const ExploreInfo = () => {
     // =====================
 
     // Function to shuffle an array
-    const shuffleArray = (array) => {
+    const shuffleArray = (array:any) => {
         const shuffledArray = [...array];
         for (let i = shuffledArray.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -181,13 +181,15 @@ const ExploreInfo = () => {
 
                         return (
                             <Link
-                                to={link}
+                                href={link}
                                 className="h-28 w-32 relative group"
                                 key={i}
                             >
-                                <img
+                                <Image
                                     src={itemImg}
                                     alt={title}
+                                    width={320}
+                                    height={280}
                                     className="w-full h-full object-cover"
                                 />
                                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-primaryColor bg-opacity-50 flex items-center justify-center duration-300 rounded-md">
@@ -213,13 +215,15 @@ const ExploreInfo = () => {
                 </h1>
                 <div className="w-full flex">
                     <Link
-                        to={`/blog/${mostRecentPost.id}`}
+                        href={`/blog/${mostRecentPost.id}`}
                         key={mostRecentPost.id}
                         className="w-full border border-gray-300 rounded-lg p-4 hover:shadow-md transition duration-300 flex flex-col gap-3"
                     >
-                        <img
+                        <Image
                             src={mostRecentPost.postImage}
                             alt={mostRecentPost.title}
+                            width={320}
+                                    height={280}
                             className="w-full h-32 object-cover"
                         />
                         <div className="mt-2 flex justify-start items-center gap-4">
@@ -257,6 +261,8 @@ const ExploreInfo = () => {
                                 <img
                                     src={selectedGig.gig_img}
                                     alt={selectedGig.title}
+                                    width={320}
+                                    height={280}
                                     className="h-40 w-full object-cover"
                                 />
                             </div>

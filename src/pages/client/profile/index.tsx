@@ -2,19 +2,20 @@ import React, { Suspense, lazy } from "react";
 
 import avatarImg from "../../../assets/author.jpg";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
-import PostInfo from "./PostInfo/PostInfo";
 import ExploreInfo from "./ExploreInfo/ExploreInfo";
-import PostLoader from "../../loader/Client/Profile/PostLoader";
+import PostLoader from "@/components/loader/client/profile/PostLoader";
+import dynamic from 'next/dynamic';
 
-
-
-// Here am using lazy loading because am not sure about the API yet.
-
-const LazyPost = lazy(() => import("./PostInfo/PostInfo"));
+// const LazyPost = lazy(() => import("./PostInfo/PostInfo"));
+// Dynamically import LazyPost component
+// const LazyPost = dynamic(() => import("./PostInfo/PostInfo"), {
+//     loading: () => <PostLoader />, // Fallback component while loading
+//     ssr: false, // Disable server-side rendering for this component
+//   });
 
 const user = {
     username: "RinaMaria",
-    userImage: avatarImg,
+    userImage:"https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
     userRating: 4.5,
     userInbox: [
         {
@@ -29,7 +30,6 @@ const user = {
             timestamp: "03:30 PM",
             avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80",
         },
-        // Add more inbox messages as needed
     ],
     userReview: [
         {
@@ -46,7 +46,6 @@ const user = {
             timestamp: "2023-08-20",
             avatar: "https://www.comingsoon.net/wp-content/uploads/sites/3/2023/06/Henry-Cavill-Superman.png?w=1024",
         },
-        // Add more reviews as needed
     ],
     userPosts: [
         {
@@ -67,8 +66,8 @@ const user = {
                     avatar: "https://images.squarespace-cdn.com/content/v1/586d154f03596e5605562ea7/1598279488284-0QXRFMTGA1QK0RSPXVQH/Sheikh+Jalaldeen.jpg",
                 },
             ],
-            liked: false, // New property to indicate if post is liked
-            likes: 10, // New property to store the number of likes
+            liked: false,
+            likes: 10,
         },
         {
             id: Math.random(),
@@ -84,10 +83,9 @@ const user = {
                     avatar: "https://hips.hearstapps.com/digitalspyuk.cdnds.net/17/26/1498493367-wonder-woman-2017.jpg?crop=0.593xw:0.988xh;0.142xw,0&resize=1200:*",
                 },
             ],
-            liked: true, // New property to indicate if post is liked
-            likes: 10, // New property to store the number of likes
+            liked: true,
+            likes: 10,
         },
-        // Add more posts as needed
     ],
     socialLinks: [
         {
@@ -98,7 +96,6 @@ const user = {
             platform: "Twitter",
             link: "https://www.twitter.com/",
         },
-        // Add more social links as needed
     ],
 };
 
@@ -106,25 +103,18 @@ const ClientProfile = () => {
     return (
         <main className="h-full w-full max-w-[1400px] m-auto">
             <section className="w-full h-full flex flex-col lg:flex-row justify-around items-start p-2 gap-5">
-                {/* left Profile */}
-
-                <div className=" w-full lg:w-4/12 p-3 border">
-                    {/* Profile Name, Image, Ratings, button */}
+                {/* Left Profile */}
+                <div className="w-full lg:w-4/12 p-3 border">
                     <ProfileInfo user={user} />
                 </div>
 
                 {/* Middle Posts */}
-
-                {/* Lazy loader */}
-                <div className=" p-3 w-full lg:w-8/12">
-                    <Suspense fallback={<PostLoader />}>
-                        <LazyPost user={user} />
-                        {/* <PostInfo user={user} /> */}
-                    </Suspense>
-                </div>
+                <div className="p-3 w-full lg:w-8/12">
+                <PostLoader />
+          
+        </div>
 
                 {/* Right Column Ads, Explore etc */}
-
                 <div className="w-full lg:w-4/12 p-3">
                     <ExploreInfo />
                 </div>
