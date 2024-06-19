@@ -1,15 +1,14 @@
 import React from "react";
-import "./Blog.css";
-import BlogSlider from "./BlogSlider.js";
-import BlogSubscribe from "./BlogSubscribe.js";
-import BlogCategory from "./BlogCategory.js";
+import BlogSlider from "./BlogSlider";
+import BlogSubscribe from "./BlogSubscribe";
+import BlogCategory from "./BlogCategory";
 import BlogCard from "./BlogCard";
 
-const Blog = () => {
+const Blog: React.FC = () => {
     return (
         <div className="mt-24 flex flex-col px-2 lg:px-5">
             {/* Title */}
-            <div className="w-full flex flex-col justify-center  items-center">
+            <div className="w-full flex flex-col justify-center items-center">
                 <h1 className="text-primaryColor text-3xl font-garamond font-bold">
                     Explore Our Blog
                 </h1>
@@ -26,7 +25,7 @@ const Blog = () => {
                 <BlogSubscribe />
             </div>
             {/* Category */}
-            <div className="my-14 ">
+            <div className="my-14">
                 <BlogCategory />
             </div>
             {/* Blog Post */}

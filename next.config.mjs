@@ -6,7 +6,7 @@ const transpileModules = ['rc-util', 'antd', '@ant-design/icons', 'rc-pagination
 const nextConfig = withTM(transpileModules)({
   reactStrictMode: true,
   images: {
-    domains: ['images.unsplash.com', 'www.comingsoon.net'],
+    domains: ['images.unsplash.com', 'www.comingsoon.net', 'img.freepik.com'],
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {

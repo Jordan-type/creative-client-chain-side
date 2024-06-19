@@ -1,4 +1,5 @@
 import React from "react";
+import Image, { StaticImageData } from "next/image";
 import author_img from "../../assets/category6.png";
 import tech1 from "../../assets/tech1.jpg";
 import tech2 from "../../assets/tech2.jpg";
@@ -125,7 +126,7 @@ const BlogDetailsPage = () => {
 
                         {/* Author Info */}
                         <div className="flex items-center my-4">
-                            <img
+                            <Image
                                 src={post.author.image}
                                 alt={post.author.name}
                                 className="w-10 h-10 rounded-full mr-3 lg:mr-4 object-cover"

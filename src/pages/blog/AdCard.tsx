@@ -1,6 +1,11 @@
 import React from "react";
 
-const AdCard = ({ img, link }) => {
+interface AdCardProps {
+    img: string;
+    link: string;
+}
+
+const AdCard: React.FC<AdCardProps> = ({ img, link }) => {
     return (
         <div className="ad-container bg-gray-100 rounded-lg overflow-hidden max-w-2xl">
             <a href={link} target="_blank" rel="noopener noreferrer">

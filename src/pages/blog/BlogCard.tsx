@@ -2,9 +2,19 @@ import React, { useState } from "react";
 import slide_img from "../../assets/tech1.jpg";
 import slide_img2 from "../../assets/tech2.jpg";
 import author_img from "../../assets/author.jpg";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import Image, { StaticImageData } from "next/image";
 
-const cardData = [
+interface CardData {
+    title: string;
+    img: StaticImageData | string;
+    tag: string;
+    author_img: StaticImageData | string;
+    author_name: string;
+    date: string;
+}
+
+const cardData: CardData[] = [
     {
         // Id is included
         // id: Id will come from database
@@ -188,11 +198,11 @@ const cardData = [
     },
 ];
 
-const truncateTitle = (title, maxLength) => {
+const truncateTitle = (title: string, maxLength: number) => {
     return title.length > maxLength ? `${title.slice(0, maxLength)}...` : title;
 };
 
-const BlogCard = () => {
+const BlogCard: React.FC = () => {
     const [visiblePosts, setVisiblePosts] = useState(10); // Number of posts initially visible
 
     const loadMorePosts = () => {
@@ -211,8 +221,10 @@ const BlogCard = () => {
                                 className="w-[100%] rounded-md h-20 lg:h-40 bg-red-600  "
                             >
                                 {/* Add your Ads content here */}
-                                <img
+                                <Image
                                     src="https://img.freepik.com/premium-photo/landscape-long-banner-panorama-blue-lake-summer-europe-nature-background_362376-331.jpg?w=2000"
+                                    width={200}
+                                    height={200}
                                     alt="Ad"
                                     className="h-20 lg:h-40 w-full rounded-md"
                                 />
@@ -228,13 +240,15 @@ const BlogCard = () => {
 
                     return (
                         <Link
-                            to={`/blog/${_id}`}
+                            href={`/blog/${_id}`}
                             key={i}
                             className="max-w-xs font-roboto shadow-lg hover:shadow-2xl rounded-lg overflow-hidden"
                         >
-                            <img
+                            <Image
                                 src={img}
                                 alt={title}
+                                width={200}
+                                height={200}
                                 className="w-full h-48 object-cover p-2 rounded-2xl"
                             />
                             <div className="p-4">
@@ -245,9 +259,11 @@ const BlogCard = () => {
                                     {truncatedTitle}
                                 </h2>
                                 <div className="flex items-center mt-4">
-                                    <img
+                                    <Image
                                         src={author_img}
                                         alt={author_name}
+                                        width={200}
+                                        height={200}
                                         className="w-10 h-10 rounded-full mr-4 object-cover"
                                     />
                                     <div

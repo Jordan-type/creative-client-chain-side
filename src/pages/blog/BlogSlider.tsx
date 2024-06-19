@@ -1,6 +1,7 @@
 import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import Image, { StaticImageData } from "next/image";
 
 // Import Swiper styles
 import "swiper/css";
@@ -8,7 +9,7 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Pagination, Autoplay } from "swiper/modules";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 import slide_img from "../../assets/tech1.jpg";
 import slide_img2 from "../../assets/tech2.jpg";
@@ -80,7 +81,8 @@ const BlogSlider = () => {
                 className="w-full h-96 flex items-center justify-center m-auto"
                 style={{
                     "--swiper-pagination-color": "#fff",
-                }}
+                } as React.CSSProperties
+            }
             >
                 {slideData?.map((item, i) => {
                     const _id = 12;
@@ -90,7 +92,7 @@ const BlogSlider = () => {
                     return (
                         <SwiperSlide key={i} className=" h-full w-full">
                             {/* Added the id here */}
-                            <Link to={`/blog/${_id}`}>
+                            <Link href={`/blog/${_id}`}>
                                 <div
                                     className="h-full w-full flex rounded-md items-end"
                                     style={{
@@ -110,7 +112,7 @@ const BlogSlider = () => {
                                         <div className="flex my-2 items-center gap-5">
                                             {/* Authon img */}
 
-                                            <img
+                                            <Image
                                                 src={author_img}
                                                 alt={author_name}
                                                 className="h-10 w-10 rounded-full"
