@@ -3,29 +3,9 @@ import { AiFillStar } from "react-icons/ai";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
+import { User } from "../../../../types/types";
 
-export interface User {
-    username: string;
-    userReview: {
-        avatar: string;
-        reviewer: string;
-        rating: number; // Changed from string to number
-        reviewText: string;
-        timestamp: string;
-    }[];
-    userImage: string | StaticImageData; 
-    userRating: number; // Ensure userRating is a number too
-    userInbox: {
-        avatar: string;
-        sender: string;
-        message: string;
-        timestamp: string;
-    }[];
-    socialLinks: {
-        platform: string;
-        link: string;
-    }[];
-}
+
 
 interface ProfileInfoProps {
     user: User;
@@ -46,8 +26,11 @@ const ProfileInfo = ({ user }:ProfileInfoProps) => {
             {/* User Image, name, rating, button, social icons */}
             <div className="flex flex-col w-full items-center justify-center gap-2">
                 <div className="h-28 w-28 rounded-full overflow-hidden my-2">
-                    <Image width={20}
-                                    height={20} src={userImage} alt={username} />
+                    <Image 
+                        width={40}
+                        height={40} 
+                        src={userImage} 
+                        alt={username} />
                 </div>
                 <div className="flex w-full items-center justify-between mt-4">
                     <p className="text-lg font-garamond font-bold">
@@ -60,7 +43,7 @@ const ProfileInfo = ({ user }:ProfileInfoProps) => {
                 </div>
                 <div className="w-full flex flex-col gap-4 mt-5">
                     <Link
-                        href="/client/post/job"
+                        href="/client/jobpost"
                         className="p-2 w-full font-semibold text-center rounded-md bg-primaryColor hover:bg-purple-700 text-white duration-200"
                     >
                         Post a Job

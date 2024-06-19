@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -11,8 +10,7 @@ import {
     ArcElement,
     Legend,
 } from "chart.js";
-
-import { Line, Doughnut, Pie } from "react-chartjs-2";
+import { Doughnut, Pie } from "react-chartjs-2";
 
 ChartJS.register(
     CategoryScale,
@@ -25,7 +23,13 @@ ChartJS.register(
     Legend
 );
 
-export const DoughnutChart = ({ usersSubscriptionDetails = [] }) => {
+interface ChartProps {
+    usersSubscriptionDetails?: number[];
+}
+
+export const DoughnutChart: React.FC<ChartProps> = ({
+    usersSubscriptionDetails = [],
+}) => {
     // Generate fake data
     const fakeData = [
         Math.floor(Math.random() * 100),
@@ -38,17 +42,8 @@ export const DoughnutChart = ({ usersSubscriptionDetails = [] }) => {
         datasets: [
             {
                 label: "Orders",
-                data:
-                    usersSubscriptionDetails.length > 0
-                        ? usersSubscriptionDetails
-                        : fakeData,
-
-                borderColor: [
-                    // "rgba(255, 255, 140, 1)",
-                    // "rgb(255, 0, 0)",
-                    // "rgb(60, 179, 113)",
-                    "rgba(0, 0, 0, 0.5)",
-                ],
+                data: usersSubscriptionDetails.length > 0 ? usersSubscriptionDetails : fakeData,
+                borderColor: ["rgba(0, 0, 0, 0.5)"],
                 backgroundColor: [
                     "rgba(230, 230, 250, 1)",
                     "rgba(220, 198, 224, 1)",
@@ -62,9 +57,8 @@ export const DoughnutChart = ({ usersSubscriptionDetails = [] }) => {
     const options = {
         plugins: {
             legend: {
-                position: "right", // Set legend position to the right
+                position: "right" as const, // Set legend position to the right
                 labels: {
-                    // Customize label appearance
                     color: "white", // Set the label text color
                     boxWidth: 20, // Set the width of the colored box next to the label
                     boxHeight: 20, // Set the height of the colored box next to the label
@@ -77,7 +71,9 @@ export const DoughnutChart = ({ usersSubscriptionDetails = [] }) => {
     return <Doughnut data={data} options={options} />;
 };
 
-export const PieChart = ({ usersSubscriptionDetails = [] }) => {
+export const PieChart: React.FC<ChartProps> = ({
+    usersSubscriptionDetails = [],
+}) => {
     // Generate fake data
     const fakeData = [
         Math.floor(Math.random() * 100),
@@ -89,11 +85,7 @@ export const PieChart = ({ usersSubscriptionDetails = [] }) => {
         datasets: [
             {
                 label: "Job Post",
-                data:
-                    usersSubscriptionDetails.length > 0
-                        ? usersSubscriptionDetails
-                        : fakeData,
-
+                data: usersSubscriptionDetails.length > 0 ? usersSubscriptionDetails : fakeData,
                 borderColor: ["rgba(0, 0, 0, 0.5)"],
                 backgroundColor: [
                     "rgba(200, 162, 200, 1)",
@@ -107,9 +99,8 @@ export const PieChart = ({ usersSubscriptionDetails = [] }) => {
     const options = {
         plugins: {
             legend: {
-                position: "right", // Set legend position to the right
+                position: "right" as const, // Set legend position to the right
                 labels: {
-                    // Customize label appearance
                     color: "white", // Set the label text color
                     boxWidth: 20, // Set the width of the colored box next to the label
                     boxHeight: 20, // Set the height of the colored box next to the label

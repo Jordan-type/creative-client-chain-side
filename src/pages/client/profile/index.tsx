@@ -6,59 +6,14 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import ExploreInfo from "./ExploreInfo/ExploreInfo";
 import PostLoader from "@/components/loader/client/profile/PostLoader";
 import dynamic from 'next/dynamic';
+import { User } from "../../../types/types";
 
 // const LazyPost = lazy(() => import("./PostInfo/PostInfo"));
 // Dynamically import LazyPost component
-// const LazyPost = dynamic(() => import("./PostInfo/PostInfo"), {
-//     loading: () => <PostLoader />, // Fallback component while loading
-//     ssr: false, // Disable server-side rendering for this component
-//   });
-
-interface InboxMessage {
-    sender: string;
-    message: string;
-    timestamp: string;
-    avatar: string;
-}
-
-interface UserReview {
-    reviewer: string;
-    rating: number;
-    reviewText: string;
-    timestamp: string;
-    avatar: string;
-}
-
-interface Mention {
-    username: string;
-    avatar: string;
-}
-
-interface UserPost {
-    id: number;
-    title: string;
-    content: string;
-    timestamp: string;
-    postImage: string | StaticImageData;
-    mentions: Mention[];
-    liked: boolean;
-    likes: number;
-}
-
-interface SocialLink {
-    platform: string;
-    link: string;
-}
-
-interface User {
-    username: string;
-    userImage: string | StaticImageData;
-    userRating: number;
-    userInbox: InboxMessage[];
-    userReview: UserReview[];
-    userPosts: UserPost[];
-    socialLinks: SocialLink[];
-}
+const LazyPost = dynamic(() => import("./PostInfo/PostInfo"), {
+    loading: () => <PostLoader />, // Fallback component while loading
+    ssr: false, // Disable server-side rendering for this component
+});
 
 const userData: User = {
     username: "RinaMaria",
@@ -119,8 +74,7 @@ const userData: User = {
         {
             id: Math.random(),
             title: "New Recipe I Tried",
-            content:
-                "Cooked a delicious meal today. Here's the recipe... Shoutout to @alicejohnson!",
+            content: "Cooked a delicious meal today. Here's the recipe... Shoutout to @alicejohnson!",
             timestamp: "2023-08-10",
             postImage:
                 "https://www.kenyasafari.com/images/ugali-nyama-choma-590x390.jpg",
@@ -157,7 +111,9 @@ const ClientProfile = () => {
   
           {/* Middle Posts */}
           <div className="p-3 w-full lg:w-8/12">
-           <PostLoader/>
+            <Suspense fallback={<PostLoader />}>
+                <LazyPost user={userData} />
+            </Suspense>
           </div>
   
           {/* Right Column Ads, Explore etc */}

@@ -166,9 +166,9 @@ const Sidebar = () => {
                 </div>
 
                 <Link
-                    href="/client/post/job"
+                    href="/client/jobpost"
                     className={`${
-                        pathname === "/client/post/job"
+                        pathname === "/client/jobpost"
                             ? "bg-purple-100 leftArrowIcon text-purple-700"
                             : ""
                     } py-2 px-5 flex gap-2 justify-start w-full items-center font-semibold text-lg text-primaryColor hover:text-purple-700`}

@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import potjob from "../../../assets/client/postjob.png";
 
 const JobPost: React.FC = () => {
@@ -10,7 +10,7 @@ const JobPost: React.FC = () => {
                 {/* Nav */}
                 <div className="flex p-5 justify-between items-center ">
                     <Link
-                        to="/"
+                        href="/"
                         className="text-primaryColor text-md lg:text-xl font-roboto font-bold "
                     >
                         creative
