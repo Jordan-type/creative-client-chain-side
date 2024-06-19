@@ -55,7 +55,8 @@ const GallerySlider: React.FC = () => {
             className="w-full h-80 flex items-center justify-center m-auto"
             style={{
                 "--swiper-pagination-color": "#fff",
-            }}
+            } as React.CSSProperties
+        }
         >
             {gallerySlideData.map((item, i) => {
                 const { img, title, subTitle } = item;
