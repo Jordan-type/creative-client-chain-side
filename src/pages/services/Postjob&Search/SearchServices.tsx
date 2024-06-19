@@ -1,5 +1,4 @@
 import React from "react";
-import "./SearchPost.css";
 
 const SearchServices = () => {
     return (

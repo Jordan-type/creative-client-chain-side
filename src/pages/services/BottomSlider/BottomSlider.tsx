@@ -2,10 +2,10 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 
-import slide1 from "../../../../assets/slide6.png";
+import slide1 from "../../../assets/slide6.png";
 
-import slide2 from "../../../../assets/slide8.png";
-import slide3 from "../../../../assets/slide9.jpg";
+import slide2 from "../../../assets/slide8.png";
+import slide3 from "../../../assets/slide9.jpg";
 
 // Gallery Slide Data
 const gallerySlideData = [
@@ -57,7 +57,8 @@ const BottomSlider = () => {
                     // "--swiper-pagination-right": "auto",
                     // "--swiper-pagination-left": "-80px !important",
                     "--swiper-pagination-top": "auto",
-                }}
+                } as React.CSSProperties
+            }
             >
                 {gallerySlideData?.map((item, i) => {
                     const _id = 12;

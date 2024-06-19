@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from "react";
 import GallerySlider from "./GallerySlider";
 import dynamic from 'next/dynamic';
 import Loader from "../../components/loader/Loader";
-import "./Gallery.css";
+
 
 const LazyGalleryCard = dynamic(() => import("./GalleryCard"), {
     loading: () => <Loader />,

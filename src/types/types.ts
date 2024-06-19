@@ -45,6 +45,25 @@ export interface User {
     socialLinks: SocialLink[];
 }
 
+export interface CreativeData {
+    profile_icon: StaticImageData | string;
+    name: string;
+    seller_level: string;
+}
+
+export interface ReviewData {
+    rating: number;
+    sold_count: number;
+}
+
+export interface CardDataItem {
+    gig_img: StaticImageData | string;
+    title: string;
+    creative_data: CreativeData;
+    review_data: ReviewData;
+    gig_price: string;
+}
+
 // interface InboxMessage {
 //     sender: string;
 //     message: string;

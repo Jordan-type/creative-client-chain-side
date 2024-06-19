@@ -1,16 +1,38 @@
 import React from "react";
+import Image, { StaticImageData } from "next/image";
 import ProfileCard from "./Postjob&Search/ProfileCard";
-import avatar from "../../../assets/author.jpg";
+import avatar from "../../assets/author.jpg";
 import SearchServices from "./Postjob&Search/SearchServices";
 import CardsContainer from "./Cards/CardsContainer";
-import card_img from "../../../assets/category1.png";
-import card_img2 from "../../../assets/category2.png";
-import card_img3 from "../../../assets/category3.png";
-import card_img4 from "../../../assets/category4.png";
-import profile_img from "../../../assets/freelance.png";
+import card_img from "../../assets/category1.png";
+import card_img2 from "../../assets/category2.png";
+import card_img3 from "../../assets/category3.png";
+import card_img4 from "../../assets/category4.png";
+import profile_img from "../../assets/freelance.png";
 import BottomSlider from "./BottomSlider/BottomSlider";
+import { CardDataItem } from "../../types/types"
 
-const cardData = [
+// // Define types for card data
+// interface CreativeData {
+//     profile_icon: StaticImageData | string;
+//     name: string;
+//     seller_level: string;
+// }
+
+// interface ReviewData {
+//     rating: number;
+//     sold_count: number;
+// }
+
+// interface CardDataItem {
+//     gig_img: StaticImageData | string;
+//     title: string;
+//     creative_data: CreativeData;
+//     review_data: ReviewData;
+//     gig_price: string;
+// }
+
+const cardData: CardDataItem[] = [
     {
         gig_img: card_img,
         title: "I will be your Photographer",
@@ -67,7 +89,6 @@ const cardData = [
         },
         gig_price: "2000",
     },
-
     {
         gig_img: card_img3,
         title: "I will be your Photographer",
@@ -82,7 +103,6 @@ const cardData = [
         },
         gig_price: "2000",
     },
-
     {
         gig_img: card_img3,
         title: "I will be your Photographer",
@@ -97,7 +117,6 @@ const cardData = [
         },
         gig_price: "2000",
     },
-
     {
         gig_img: card_img4,
         title: "I will be your Photographer",
@@ -112,7 +131,6 @@ const cardData = [
         },
         gig_price: "2000",
     },
-
     {
         gig_img: card_img3,
         title: "I will be your Photographer",
@@ -129,12 +147,12 @@ const cardData = [
     },
 ];
 
-const ServicesPage = () => {
+const ServicesPage: React.FC = () => {
     return (
         <div className="h-full w-full">
             <div className="flex flex-col h-full w-full p-3">
                 {/* Search & post a job */}
-                <div className="flex flex-col gap-3 lg:flex-row md:flex-row xl:flex-row  ">
+                <div className="flex flex-col gap-3 lg:flex-row md:flex-row xl:flex-row">
                     <ProfileCard
                         name="Rina"
                         image={avatar}
