@@ -64,6 +64,22 @@ export interface CardDataItem {
     gig_price: string;
 }
 
+export interface UserSignUpDetails{
+    first_name:string;
+    last_name:string;
+    username: string;
+    phone_number:string; 
+     email:string;
+    password:string;
+    userType:string;
+    userAddress:string;
+    confirmPassword:string
+}
+export interface UserLoginDetails{
+    username: string;
+    password:string;
+    }
+
 // interface InboxMessage {
 //     sender: string;
 //     message: string;

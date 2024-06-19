@@ -9,11 +9,16 @@ import passicon from "../../assets/passicon.svg";
 import signup from "../../assets/signup.png";
 import InputField from "../ui/InputField";
 import Input from "antd/es/input/Input";
+import { useRouter } from "next/router";
+import { userSignUp } from "@/config/ApiConfig";
+import { UserSignUpDetails } from "@/types/types";
+import { User } from "next-auth";
 
 const Signup = () => {
+    const router = useRouter()
     const [messageApi, contextHolder] = message.useMessage();
 
-    const [info, setInfo] = useState({
+    const [info, setInfo] = useState<UserSignUpDetails>({
         first_name: "",
         last_name: "",
         username: "",
@@ -21,13 +26,44 @@ const Signup = () => {
         userAddress: "",
         email: "",
         password: "",
-        confirmPassword: "",
+       userType:"",
+       confirmPassword:""
     });
+    const handleSignUpUser =async()=>{
+        try {
+            const response = await userSignUp(info);
+            if(response?.status ==200){
+                messageApi.open({
+                    type: "success",
+                    content: "Signup Success",
+                });
+                setInfo({
+                    first_name: "",
+                    last_name: "",
+                    username: "",
+                    phone_number: "",
+                    userAddress: "",
+                    email: "",
+                    password: "",
+                   userType:"",
+                   confirmPassword:""
+                   
+                    });
+                    
+                        // Navigate to homepage
+                        router.push("/auth/signin");
+                }
+            }catch(err){
+                messageApi.error("Error signing up user");
+            }
+        }
+                     
+    
 
     const handleChange = (e: any) => {
         setInfo({ ...info, [e.target.name]: e.target.value });
     };
-    const handleSubmit = () => {
+    const handleSubmit =async () => {
         if (
             !info.first_name ||
             !info.last_name ||
@@ -53,10 +89,7 @@ const Signup = () => {
                 content: "Password does not match",
             });
         } else {
-            messageApi.open({
-                type: "success",
-                content: "Signup Success",
-            });
+            await handleSignUpUser()
         }
     };
     return (
