@@ -164,7 +164,7 @@ const Signup = () => {
                     <p className="text-[#71717A] font-light text-center mt-2">
                         You have an account?{" "}
                         <Link
-                            href={"/login"}
+                            href={"/auth/signin"}
                             className="text-[#8098F9] font-semibold"
                         >
                             Login now
