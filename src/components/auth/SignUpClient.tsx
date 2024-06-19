@@ -13,9 +13,13 @@ import { useRouter } from "next/router";
 import { userSignUp } from "@/config/ApiConfig";
 import { UserSignUpDetails } from "@/types/types";
 import { User } from "next-auth";
+import ConnectBTN from "../ConnectBtn";
+import { useAccount } from "wagmi";
+import { Button } from "../ui/button";
 
 const Signup = () => {
     const router = useRouter()
+    const {address} = useAccount()
     const [messageApi, contextHolder] = message.useMessage();
 
     const [info, setInfo] = useState<UserSignUpDetails>({
@@ -104,6 +108,7 @@ const Signup = () => {
                         Unlock all features
                     </p>
                     <div className="flex flex-col gap-y-3 mt-6">
+                        <Button><ConnectBTN/></Button>
                         <InputField
                             onChange={handleChange}
                             name={"first_name"}
@@ -126,10 +131,12 @@ const Signup = () => {
                             icon={null}
                         />
                         <InputField
-                            onChange={handleChange}
+                             onChange={handleChange}
                             name={"userAddress"}
                             placeholder={"Address"}
                             type={"text"}
+                            disabled={true}
+                            value={address}
                             icon={null}
                         />
                         <InputField
