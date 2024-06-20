@@ -1,5 +1,6 @@
 import { signIn } from "next-auth/react";
 import { transactionType } from "viem";
+import { UserSignUpDetails } from "@/types/types";
 
 export type dataSignInUser = {
   email: string;
@@ -38,9 +39,9 @@ export const signInUser = async (userDetails: dataSignInUser) => {
   }
 };
 
-export const userSignUp = async (userDetails: registerUser) => {
+export const userSignUp = async (userDetails:UserSignUpDetails) => {
   try {
-    const res = await fetch("/signup", {
+    const res = await fetch("/api/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,7 +50,7 @@ export const userSignUp = async (userDetails: registerUser) => {
         first_name: userDetails.first_name,
         last_name: userDetails.last_name,
         username: userDetails.username,
-        phoneNumber: userDetails.phoneNumber,
+        phone_number: userDetails.phone_number,
         userAddress: userDetails.userAddress,
         userType: userDetails.userType,
         email: userDetails.email,

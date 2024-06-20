@@ -25,7 +25,7 @@ export default function Header({ isAuthenticated }: HeaderProps) {
 
     return (
         <>
-        {isAuthenticated ? <AuthNavbar /> : <PublicNavbar />}
+        {isAuthenticated ? <AuthNavbar /> : <PublicNavbar /> }
         </>
         // <Disclosure as="nav" className="">
         //     {({ open }) => (

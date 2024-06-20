@@ -1,9 +1,13 @@
-import React from "react";
-
+import React, { FormEvent } from "react";
+import Image from "next/image";
 import modal1 from "../../../assets/creative/modal1.png";
 
-const CreativesCateModal = ({ handleCancel }) => {
-    const handleSubmit = (e) => {
+interface CreativesCateModalProps {
+    handleCancel: () => void;
+}
+
+const CreativesCateModal: React.FC<CreativesCateModalProps> = ({ handleCancel }) => {
+    const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
         console.log("click");
     };
@@ -11,8 +15,8 @@ const CreativesCateModal = ({ handleCancel }) => {
     return (
         <div className="h-full  w-full p-5 lg:p-10 flex flex-col gap-3 font-garamond justify-center items-center">
             {/* Image */}
-            <div className=" mt-2 p-2 lg:p-5 flex items-center justify-center rounded-md">
-                <img
+            <div className="mt-2 p-2 lg:p-5 flex items-center justify-center rounded-md">
+                <Image
                     src={modal1}
                     className="w-40 lg:w-[350px] h-auto"
                     alt="creativelist"
@@ -38,14 +42,14 @@ const CreativesCateModal = ({ handleCancel }) => {
                 {/* ================================= */}
                 {/* ================================= */}
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="text" className="text-white font-bold">
-                        Skils Name:
+                    <label htmlFor="skills" className="text-white font-bold">
+                        Skills Name:
                     </label>
                     <input
                         type="text"
-                        id="text"
-                        name="text"
-                        placeholder="Skils Name"
+                        id="skills"
+                        name="skills"
+                        placeholder="Skills Name"
                         className="border border-[#D1D1D1] rounded-lg p-3 placeholder:text-[#ACACAC]"
                     />
                 </div>
@@ -58,13 +62,13 @@ const CreativesCateModal = ({ handleCancel }) => {
                 {/* ================================= */}
                 {/* ================================= */}
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="text" className="text-white font-bold">
+                    <label htmlFor="name" className="text-white font-bold">
                         Your Name:
                     </label>
                     <input
                         type="text"
-                        id="text"
-                        name="text"
+                        id="name"
+                        name="name"
                         placeholder="Your Name"
                         className="border border-[#D1D1D1] rounded-lg p-3 placeholder:text-[#ACACAC]"
                     />
@@ -78,13 +82,13 @@ const CreativesCateModal = ({ handleCancel }) => {
                 {/* ================================= */}
                 {/* ================================= */}
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="text" className="text-white font-bold">
+                    <label htmlFor="email" className="text-white font-bold">
                         Write your Email:
                     </label>
                     <input
-                        type="text"
-                        id="text"
-                        name="text"
+                        type="email"
+                        id="email"
+                        name="email"
                         placeholder="Your Email"
                         className="border border-[#D1D1D1] rounded-lg p-3 placeholder:text-[#ACACAC]"
                     />
@@ -98,13 +102,13 @@ const CreativesCateModal = ({ handleCancel }) => {
                 {/* ================================= */}
                 {/* ================================= */}
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="text" className="text-white font-bold">
+                    <label htmlFor="whatsapp" className="text-white font-bold">
                         Write your WhatsApp Number:
                     </label>
                     <input
-                        type="number"
-                        id="text"
-                        name="text"
+                        type="tel"
+                        id="whatsapp"
+                        name="whatsapp"
                         placeholder="WhatsApp Number"
                         className="border border-[#D1D1D1] rounded-lg p-3 placeholder:text-[#ACACAC]"
                     />
