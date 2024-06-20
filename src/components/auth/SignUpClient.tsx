@@ -27,7 +27,7 @@ const Signup = () => {
         last_name: "",
         username: "",
         phone_number: "",
-        userAddress: "",
+        userAddress: address || "",
         email: "",
         password: "",
        userType:"",
