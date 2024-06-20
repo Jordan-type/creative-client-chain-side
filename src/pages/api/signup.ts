@@ -45,7 +45,7 @@ export default async function handler(
         last_name:last_name,
         username:username,
         phone_number:phone_number, 
-         email:email,
+        email:email,
         password:password,
         userType:userType,
         userAddress:userAddress
@@ -54,6 +54,7 @@ export default async function handler(
     });
 
     if (!result.ok) {
+      console.log("total shut down", await result.json())
       throw new Error("Failed to create transaction");
     }
 

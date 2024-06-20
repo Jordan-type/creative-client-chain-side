@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import passicon from "../../assets/passicon.svg";
 import newpass from "../../assets/newpass.png";
 import { useNavigate } from "react-router-dom";
+import Link from "next/link"
+import Image from "next/image"
 import { message } from "antd";
 
 const Otp = () => {
@@ -13,7 +15,7 @@ const Otp = () => {
         confirmPassword: "",
     });
 
-    const handleChange = (e) => {
+    const handleChange = (e: any) => {
         setInfo({ ...info, [e.target.name]: e.target.value });
     };
 
@@ -46,7 +48,7 @@ const Otp = () => {
                 <div className="max-w-[400px]">
                     <div className="flex flex-col gap-y-3 mt-10">
                         <div className="bg-[#EAEFFF] border-2 flex items-center gap-x-2 border-inputBorderColor rounded-lg w-[400px] px-2 py-3">
-                            <img
+                            <Image
                                 className="max-w-[24px]"
                                 src={passicon}
                                 alt=""
@@ -83,7 +85,7 @@ const Otp = () => {
                 </div>
             </div>
             <div className="bg-primaryColor lg:flex hidden items-center justify-center flex-col h-screen flex-[0.5]">
-                <img className="max-w-[400px]" src={newpass} alt="" />
+                <Image className="max-w-[400px]" src={newpass} alt="" />
                 <h2 className="text-center text-[#E0EAFF] font-bold text-xl mt-6">
                     This is the end!
                 </h2>

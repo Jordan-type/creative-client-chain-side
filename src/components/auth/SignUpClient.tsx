@@ -27,13 +27,20 @@ const Signup = () => {
         last_name: "",
         username: "",
         phone_number: "",
-        userAddress: "",
+        userAddress: address || "",
         email: "",
+        userType:"client",
         password: "",
-       userType:"",
-       confirmPassword:""
+        confirmPassword:""
     });
     const handleSignUpUser =async()=>{
+        const {first_name, last_name, username, phone_number, userAddress, email, password, userType, confirmPassword} = info;
+
+        console.log("first name", first_name)
+
+        console.log("email address", email)
+        console.log("password", password)
+
         try {
             const response = await userSignUp(info);
             if(response?.status ==200){
@@ -49,25 +56,28 @@ const Signup = () => {
                     userAddress: "",
                     email: "",
                     password: "",
-                   userType:"",
-                   confirmPassword:""
-                   
-                    });
-                    
-                        // Navigate to homepage
-                        router.push("/auth/signin");
-                }
-            }catch(err){
-                messageApi.error("Error signing up user");
+                    userType:"",
+                    confirmPassword:""
+                });
+                
+                // Navigate to homepage
+                router.push("/auth/signin");
             }
+        } catch(err){
+            messageApi.error("Error signing up user");
         }
-                     
+    }
     
-
     const handleChange = (e: any) => {
         setInfo({ ...info, [e.target.name]: e.target.value });
     };
+
     const handleSubmit =async () => {
+
+        console.log()
+        
+
+
         if (
             !info.first_name ||
             !info.last_name ||
@@ -75,6 +85,7 @@ const Signup = () => {
             !info.phone_number ||
             !info.userAddress ||
             !info.email ||
+            !info.userType ||
             !info.password ||
             !info.confirmPassword
         ) {
@@ -131,7 +142,7 @@ const Signup = () => {
                             icon={null}
                         />
                         <InputField
-                             onChange={handleChange}
+                            onChange={handleChange}
                             name={"userAddress"}
                             placeholder={"Address"}
                             type={"text"}

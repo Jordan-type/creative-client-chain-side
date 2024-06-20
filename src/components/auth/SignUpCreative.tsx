@@ -20,6 +20,7 @@ const Signup = () => {
         phone_number: "",
         userAddress: "",
         email: "",
+        userType:"creative",
         password: "",
         confirmPassword: "",
     });
@@ -35,6 +36,7 @@ const Signup = () => {
             !info.phone_number ||
             !info.userAddress ||
             !info.email ||
+            !info.userType ||
             !info.password ||
             !info.confirmPassword
         ) {

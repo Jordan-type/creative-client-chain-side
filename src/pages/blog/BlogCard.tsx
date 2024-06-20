@@ -247,8 +247,6 @@ const BlogCard: React.FC = () => {
                             <Image
                                 src={img}
                                 alt={title}
-                                width={200}
-                                height={200}
                                 className="w-full h-48 object-cover p-2 rounded-2xl"
                             />
                             <div className="p-4">
@@ -262,8 +260,6 @@ const BlogCard: React.FC = () => {
                                     <Image
                                         src={author_img}
                                         alt={author_name}
-                                        width={200}
-                                        height={200}
                                         className="w-10 h-10 rounded-full mr-4 object-cover"
                                     />
                                     <div

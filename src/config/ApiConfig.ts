@@ -50,7 +50,7 @@ export const userSignUp = async (userDetails:UserSignUpDetails) => {
         first_name: userDetails.first_name,
         last_name: userDetails.last_name,
         username: userDetails.username,
-        phoneNumber: userDetails.phone_number,
+        phone_number: userDetails.phone_number,
         userAddress: userDetails.userAddress,
         userType: userDetails.userType,
         email: userDetails.email,

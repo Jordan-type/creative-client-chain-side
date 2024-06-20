@@ -69,7 +69,7 @@ export interface UserSignUpDetails{
     last_name:string;
     username: string;
     phone_number:string; 
-     email:string;
+    email:string;
     password:string;
     userType:string;
     userAddress:string;
@@ -78,7 +78,7 @@ export interface UserSignUpDetails{
 export interface UserLoginDetails{
     username: string;
     password:string;
-    }
+}
 
 // interface InboxMessage {
 //     sender: string;
