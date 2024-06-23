@@ -3,18 +3,16 @@ import Footer from "./Footer";
 import Header from "./Header";
 
 interface Props {
-    children: ReactNode;
+  children: ReactNode;
 }
 const Layout: FC<Props> = ({ children }) => {
-    return (
-        <>
-            {/* <div className=" overflow-hidden flex flex-col justify-center h-screen   "> */}
-                <Header/>
-                    {children}
-                <Footer />
-            {/* </div> */}
-        </>
-    );
+  return (
+    <>
+      <Header />
+      {children}
+      <Footer />
+    </>
+  );
 };
 
 export default Layout;

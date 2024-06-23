@@ -5,8 +5,6 @@ import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import { User } from "../../../../types/types";
 
-
-
 interface ProfileInfoProps {
     user: User;
 }

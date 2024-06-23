@@ -75,9 +75,15 @@ export interface UserSignUpDetails{
     userAddress:string;
     confirmPassword:string
 }
+
 export interface UserLoginDetails{
     username: string;
     password:string;
+}
+
+export interface verifyAccountData{
+    token: string;
+    activation_code: string;
 }
 
 // interface InboxMessage {

@@ -36,10 +36,7 @@ const Signup = () => {
     const handleSignUpUser =async()=>{
         const {first_name, last_name, username, phone_number, userAddress, email, password, userType, confirmPassword} = info;
 
-        console.log("first name", first_name)
-
-        console.log("email address", email)
-        console.log("password", password)
+        console.log("all - all", first_name, last_name, username, phone_number, userAddress, email, password, userType, confirmPassword)
 
         try {
             const response = await userSignUp(info);
@@ -59,9 +56,14 @@ const Signup = () => {
                     userType:"",
                     confirmPassword:""
                 });
+
+                {
+                    mesaage: "ëmail sent"
+                    token: "uiyuiyuiyiuyuiyuyuyuyuut"
+                }
                 
                 // Navigate to homepage
-                router.push("/auth/signin");
+                router.push("/auth/account-activation?token=token");
             }
         } catch(err){
             messageApi.error("Error signing up user");

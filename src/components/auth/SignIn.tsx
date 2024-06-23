@@ -5,6 +5,7 @@ import { RiEyeLine, RiEyeOffLine } from "react-icons/ri";
 import { useRouter } from "next/router";
 import Link from "next/link"
 import Image from "next/image"
+import { useSession } from "next-auth/react";
 
 import login from "../../assets/login.png";
 import colorgoogle from "../../assets/colorgoogle.svg";
@@ -12,11 +13,13 @@ import colorlinkedin from "../../assets/colorlinkedin.svg";
 import passicon from "../../assets/passicon.svg";
 import InputField from "../ui/InputField";
 
+
 import { signInUser, userSignUp } from "@/config/ApiConfig"
 
 const SignIn: React.FC = () => {
 
     const router = useRouter();
+    const { data  } = useSession()
     const [messageApi, contextHolder] = message.useMessage();
 
     const [password, setPassword] = useState<string>("");
@@ -73,7 +76,12 @@ const SignIn: React.FC = () => {
                 content: "Login Success",
             });
 
-            router.push("/dashboard");
+            // add root dashboard
+            if (data?.user.roleName === "client") {
+                router.push("/client/dashboard");
+            } else if (data?.user.roleName === "creative") {
+                router.push("/client/dashboard");
+            }
         }
 
     } catch (error: any) {

@@ -59,8 +59,7 @@ const PublicNavbar: React.FC = () => {
                 <div>
                     <Link href="/" className="text-primaryColor text-2xl font-garamond font-bold inline-flex">
                         <span>
-                            creative
-                            <p className="text-secondaryColor">list</p>
+                            creative<p className="text-secondaryColor">list</p>
                         </span>
                     </Link>
                 </div>
